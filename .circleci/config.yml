@@ -1,0 +1,26 @@
+version: 2 
+jobs: 
+  build: 
+	working_directory: ~/repo
+	docker: 
+	  - image: circleci/python:3.6.4
+t
+	steps: # steps that comprise the `build` job
+
+	  - run:
+		  command: |
+			python3 -m venv venv
+			. venv/bin/activate
+			make install
+			
+	  - save_cache: # cache Python dependencies using checksum of Pipfile as the cache-key
+		  paths:
+			- ./ven"
+	  - run:
+		  name: run lint			
+		  command: |
+			. venv/bin/activate
+			make lint 
+			
+			
+			
